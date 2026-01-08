@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ChB Photo - Evenement{% endblock %}
+
+{% block body %}
+    <header></header>
+    <div class="desc">
+        <h2>Photographie d'evenement</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam pretium aliquet ligula non mollis. Proin
+            pellentesque lorem non auctor dignissim. Aliquam non bibendum dui, sit amet mollis turpis. Aenean purus
+            tellus, efficitur quis vestibulum vel, pulvinar vel lacus. Maecenas tortor ligula, imperdiet eget purus non,
+            imperdiet eleifend lorem.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam pretium aliquet
+            ligula non mollis. Proin
+            pellentesque lorem non auctor dignissim. Aliquam non bibendum dui, sit amet mollis turpis. Aenean purus
+            tellus, efficitur quis vestibulum vel, pulvinar vel lacus. Maecenas tortor ligula, imperdiet eget purus non,
+            imperdiet eleifend lorem.</p>
+    </div>
+    <div class="galerie">
+        <h2>Galerie photo</h2>
+        <ul>
+            {% for photo in galerie.photos %}
+                <li><img src="{{asset(photo.url) }}" alt="{{ photo.titre }}"/> {{ photo.titre }}</li>
+            {% else %}
+                <li>Aucun message</li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}

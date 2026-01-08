@@ -1,0 +1,27 @@
+.galerie {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2% 6% 0 6%;
+    gap: 20px;
+}
+
+.galerie li {
+    color: var(--lg-text);
+    text-align: center;
+}
+
+.galerie ul {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+
+}
+
+.galerie img {
+    width: 100%;
+    height: auto;
+}

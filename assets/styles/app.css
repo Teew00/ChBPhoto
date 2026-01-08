@@ -1,3 +1,148 @@
+:root {
+    --color-one: #01001C;
+    --color-two: #030059;
+    --color-three: #0035BD;
+    --color-four: #04ABBA;
+    --lg-bg-color: rgba(255, 255, 255, 0.25);
+    --lg-highlight: rgba(255, 255, 255, 0.75);
+    --lg-text: #ffffff;
+    --lg-hover-glow: rgba(255, 255, 255, 0.4);
+    --lg-red: #fb4268;
+    --lg-grey: #5b5b5b;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-family: Poppins, serif;
+    color: var(--color-two);
+    text-decoration: none;
+}
+
 body {
-    background-color: skyblue;
+    background: var(--color-one);
+    overflow-x: hidden;
+}
+
+header {
+    background: url(../img/couverture.jpg);
+    height: 100vh;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+}
+
+.carte {
+    width: 415px;
+    height: 415px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border-radius: 2rem;
+    padding: 30px;
+    text-align: center;
+}
+
+.carte-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+.btn {
+    width: 200px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100px;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+footer {
+    background-color: var(--color-one);
+    width: 100vw;
+    height: 15vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer ul {
+    width: 100vw;
+    height: 15vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+footer a {
+    color: var(--lg-text);
+    font-size: 1.2rem;
+}
+
+.logo {
+    width: 4.5vw;
+}
+
+section {
+    width: 100%;
+    height: 90vh;
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.sport {
+    background: url(../img/janvier.jpg) center center no-repeat;
+    background-size: cover;
+}
+
+.event {
+    background: url(../img/fevrier.jpg) center center no-repeat;
+    background-size: cover;
+}
+
+.objet {
+    background: url(../img/mars.jpg) center center no-repeat;
+    background-size: cover;
+}
+
+.left {
+    left: 10%;
+}
+
+.right {
+    left: 70%;
+}
+
+.desc {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    text-align: center;
+    height: 40vh;
+    background-color: var(--color-two);
+}
+
+.desc p,.desc h2 {
+    color: var(--lg-text);
+    width: 75%;
+}
+h2 {
+    font-size: 2.5rem;
+    color: var(--lg-text);
+}
+.desc p {
+    font-size: 1.5rem;
 }
