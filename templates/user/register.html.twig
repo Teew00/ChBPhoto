@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('styles/forms.css') }}">{% endblock %}
+
+{% block body %}
+    <div class="form-container">
+        <div class="glass-container carte">
+            <div class="glass-filter"></div>
+            <div class="glass-overlay"></div>
+            <div class="glass-specular"></div>
+            <div class="glass-content carte-content">
+
+                <h1>Inscription</h1>
+
+                {{ include('user/_form.html.twig') }}
+            </div>
+        </div>
+    </div>
+{% endblock %}

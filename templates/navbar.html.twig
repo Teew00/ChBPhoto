@@ -10,11 +10,16 @@
             <li><a href="{{ path('app_home_sport') }}">Sport</a></li>
             <li><a href="{{ path('app_home_event') }}">Événements</a></li>
             <li><a href="{{ path('app_home_objet') }}">Objet</a></li>
-            <li><a href="">Tarifs</a></li>
+            <li><a href="{{ path('app_home_tarifs') }}">Tarifs</a></li>
             <li><a href="{{ path('app_home_apropos') }}">À propos</a></li>
             <li><a href="">Contact</a></li>
-            <li><a href="">Connexion</a></li>
-            <li><a href="">Inscription</a></li>
+            {% if app.user %}
+                <li><a href="{{ path('app_profile') }}">Profile</a></li>
+                <li><a href="{{ path('app_logout') }}">Déconnection</a></li>
+            {% else %}
+                <li><a href="{{ path('app_login') }}">Connexion</a></li>
+                <li><a href="{{ path('app_register') }}">Inscription</a></li>
+            {% endif %}
         </ul>
     </div>
 </nav>

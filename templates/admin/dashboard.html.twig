@@ -1,0 +1,13 @@
+<h2>Dernières inscriptions</h2>
+<ul>
+    {% for user in lastUser %}
+    <li>{{ user.nom }} - {{ user.prenom }} - {{ user.email }}</li>
+    {% endfor %}
+</ul>
+
+<h2>Derniers messages</h2>
+<ul>
+    {% for msg in lastMessage %}
+        <li>{{ msg.idUser.nom }} - {{ msg.idUser.prenom }} - {{ msg.idConversation.titre }}</li>
+    {% endfor %}
+</ul>

@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('styles/forms.css') }}">{% endblock %}
+
+{% block title %}Connexion{% endblock %}
+
+{% block body %}
+    <div class="form-container">
+        <div class="glass-container carte">
+            <div class="glass-filter"></div>
+            <div class="glass-overlay"></div>
+            <div class="glass-specular"></div>
+            <div class="glass-content carte-content">
+
+                <h1>Connexion</h1>
+
+                {% if error %}
+                    <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                {% endif %}
+
+                <form action="{{ path('app_login') }}" method="post">
+                    <label for="email">Email:</label>
+                    <input type="text" id="email" name="_username" value="{{ last_username }}" required autofocus>
+
+                    <label for="password">Mot de passe:</label>
+                    <input type="password" id="password" name="_password" required>
+
+                    <button type="submit">Se connecter</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,30 @@
+tarifs:
+  standard:
+    id: standard
+    titre: "Tarif Standard"
+    description: "Accès simple"
+    prix: 12.50
+
+  etudiant:
+    id: etudiant
+    titre: "Tarif Étudiant"
+    description: "Sur présentation de la carte"
+    prix: 8.00
+
+  vip:
+    id: vip
+    titre: "Tarif VIP"
+    description: "Accès + avantages"
+    prix: 25.00
+
+  vip1:
+    id: vip
+    titre: "Tarif VIP"
+    description: "Accès + avantages"
+    prix: 25.00
+
+  vip2:
+    id: vip
+    titre: "Tarif VIP"
+    description: "Accès + avantages"
+    prix: 25.00
