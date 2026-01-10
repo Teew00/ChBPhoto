@@ -1,0 +1,26 @@
+<h1>Galerie index</h1>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Titre</th>
+        <th>actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for galerie in galeries %}
+        <tr>
+            <td>{{ galerie.id }}</td>
+            <td>{{ galerie.titre }}</td>
+            <td>
+                <a href="{{ path('app_admin_galerie_show', {'id': galerie.id}) }}">show</a>
+            </td>
+        </tr>
+    {% else %}
+        <tr>
+            <td colspan="3">no records found</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>

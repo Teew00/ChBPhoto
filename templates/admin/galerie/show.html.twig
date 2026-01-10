@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}<link rel="stylesheet" href="{{ asset('styles/galeries.css') }}">{% endblock %}
+
+{% block body %}
+<div class="galerie">
+    <h2>Galerie photo</h2>
+    <ul>
+        {% for photo in galerie.photos %}
+            <li><img src="{{asset(photo.url) }}" alt="{{ photo.titre }}"/> {{ photo.titre }} <a href="{{ path('app_admin_photo_edit', {'idGalerie': galerie.id, 'id': photo.id}) }}">{{ ux_icon('heroicons:pencil-square') }}</a></li>
+        {% else %}
+            <li>Aucune photo</li>
+        {% endfor %}
+            <li class="plus"><a href="{{ path('app_admin_photo_new', {'idGalerie': galerie.id}) }}">{{ ux_icon('heroicons:plus') }}</a></li>
+    </ul>
+</div>
+{% endblock %}

@@ -1,13 +1,26 @@
-<h2>Dernières inscriptions</h2>
-<ul>
-    {% for user in lastUser %}
-    <li>{{ user.nom }} - {{ user.prenom }} - {{ user.email }}</li>
-    {% endfor %}
-</ul>
+<div>
+    <h2>Dernières inscriptions</h2>
+    <ul>
+        {% for user in lastUser %}
+            <li><a href="{{ path('app_admin_user_show', {id: user.id}) }}">{{ user.nom }} - {{ user.prenom }} - {{ user.email }}</a></li>
+        {% endfor %}
+    </ul>
+    <a href="{{ path('app_admin_user_index') }}">Voir plus</a>
+</div>
 
-<h2>Derniers messages</h2>
-<ul>
-    {% for msg in lastMessage %}
-        <li>{{ msg.idUser.nom }} - {{ msg.idUser.prenom }} - {{ msg.idConversation.titre }}</li>
-    {% endfor %}
-</ul>
+<div>
+    <h2>Derniers messages</h2>
+    <ul>
+        {% for msg in lastMessage %}
+            <li><a href="/">{{ msg.idUser.nom }} - {{ msg.idUser.prenom }} - {{ msg.idConversation.titre }}</a></li>
+        {% endfor %}
+    </ul>
+    <a href="/">Voir plus</a>
+</div>
+
+<div>
+    <a href="{{ path('app_admin_tarifs') }}">Gérer les tarifs</a>
+</div>
+<div>
+    <a href="{{ path('app_admin_galerie') }}">Gérer les galeries</a>
+</div>

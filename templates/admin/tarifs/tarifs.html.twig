@@ -12,6 +12,8 @@
             <div class="glass-overlay"></div>
             <div class="glass-specular"></div>
             <div class="glass-content tarifs-content">
+                <h2>Tarifs</h2>
+                <a href="{{ path('app_admin_tarifs_new') }}">{{ ux_icon('heroicons:plus-circle') }}</a>
                 <ul>
                     {% for tarif in tarifs %}
                         <li class="glass-container tarifsline-container">
@@ -20,6 +22,14 @@
                             <div class="glass-specular"></div>
                             <div class="glass-content ">
                                 {{ tarif.titre }} - {{ tarif.description }} - {{ tarif.prix }}€
+                                <span>
+                                    <a href="{{ path('app_admin_tarifs_edit', {id: tarif.id}) }}">{{ ux_icon('heroicons:pencil-square') }}</a>
+                                </span>
+                                <form method="post" action="{{ path('app_admin_tarifs_delete', {'id': tarif.id}) }}"
+                                      onsubmit="return confirm('Êtes-vous sûr ?');">
+                                    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ tarif.id) }}">
+                                    <button class="btn btn-danger">{{ ux_icon('heroicons:trash') }}</button>
+                                </form>
                             </div>
                         </li>
                     {% else %}

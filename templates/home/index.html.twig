@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ChB Photography{% endblock %}
+
+{% block body %}
+    <header>
+        {{ include("carte.html.twig") }}
+    </header>
+    <section class="sport">
+        {{ include("carte.html.twig", {side:"left", CardTitle: "Photographie de sport" , CardText: "" , ButtonText: "Sport", ButtonLink: "app_home_sport" } ) }}
+    </section>
+    <section class="event">
+        {{ include("carte.html.twig", {CardTitle: "Photographie d'Événement" , CardText: "" , ButtonText: "Événement", ButtonLink: "app_home_event" } ) }}
+    </section>
+    <section class="objet">
+        {{ include("carte.html.twig", {side:"left", CardTitle: "Photographie d'Objet/Packshot" , CardText: "" , ButtonText: "Objet/Packshot", ButtonLink: "app_home_objet" } ) }}
+    </section>
+{% endblock %}

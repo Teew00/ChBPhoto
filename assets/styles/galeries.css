@@ -25,3 +25,11 @@
     width: 100%;
     height: auto;
 }
+
+.plus {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--lg-grey);
+    font-size: 10rem;
+}
