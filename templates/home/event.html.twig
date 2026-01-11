@@ -19,7 +19,7 @@
         <h2>Galerie photo</h2>
         <ul>
             {% for photo in galerie.photos %}
-                <li><img src="{{asset(photo.url) }}" alt="{{ photo.titre }}"/> {{ photo.titre }}</li>
+                <li><img src="{{ asset('img/' ~ photo.url) }}" alt="{{ photo.titre }}"/> {{ photo.titre }}</li>
             {% else %}
                 <li>Aucun message</li>
             {% endfor %}

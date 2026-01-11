@@ -2,11 +2,13 @@
 
 namespace App\Entity;
 
+use App\EventListener\PhotoListener;
 use App\Repository\PhotoRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: PhotoRepository::class)]
+#[ORM\EntityListeners([PhotoListener::class])]
 class Photo
 {
     #[ORM\Id]

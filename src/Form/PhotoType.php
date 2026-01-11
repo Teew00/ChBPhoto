@@ -6,8 +6,10 @@ use App\Entity\Galerie;
 use App\Entity\Photo;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\File;
 
 class PhotoType extends AbstractType
 {
@@ -16,7 +18,22 @@ class PhotoType extends AbstractType
         $builder
             ->add('titre')
             ->add('description')
-            ->add('url')
+            ->add('imageFile', FileType::class, [
+                'label'=>'Photo',
+                'mapped'=>false,
+                'required'=>true,
+                'constraints' => [
+                    new File([
+                        'maxSize'=>'5M',
+                        'mimeTypes'=>[
+                            'image/jpeg',
+                            'image/png',
+                            'image/webp',
+                        ],
+                        'mimeTypesMessage'=>'Veuillez choisir une image valide',
+                    ])
+                ]
+            ])
         ;
     }
 

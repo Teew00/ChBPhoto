@@ -27,7 +27,7 @@ body {
 }
 
 header {
-    background: url(../img/couverture.jpg);
+    background: url('../img/couverture.jpg');
     height: 100vh;
     background-size: cover;
     display: flex;
@@ -102,17 +102,17 @@ section {
 }
 
 .sport {
-    background: url(../img/janvier.jpg) center center no-repeat;
+    background: url('../img/janvier.jpg') center center no-repeat;
     background-size: cover;
 }
 
 .event {
-    background: url(../img/fevrier.jpg) center center no-repeat;
+    background: url('../img/fevrier.jpg') center center no-repeat;
     background-size: cover;
 }
 
 .objet {
-    background: url(../img/mars.jpg) center center no-repeat;
+    background: url('../img/mars.jpg') center center no-repeat;
     background-size: cover;
 }
 

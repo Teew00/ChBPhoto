@@ -1,12 +1,21 @@
-{% extends 'base.html.twig' %}
+<div>
+    <h3>Vos informations</h3>
 
-
-{% block body %}
-<h1>Profil utilisateur</h1>
-
-<p>Email : {{ email }}</p>
-<p>Nom : {{ nom }}</p>
-<p>Prenom : {{ prenom }}</p>
+    <p>Nom : {{ user.nom }}</p>
+    <p>Prenom : {{ user.prenom }}</p>
+    <p>Téléphone : {{ user.telephone }}</p>
+    <p>Email : {{ user.email }}</p>
+    <a href="{{ path('app_user_edit', {'id': user.id}) }}">Modifier les informations</a>
+</div>
+<div>
+    <h3>Vos derniers messages</h3>
+    <ul>
+        {% for msg in messages %}
+            <li>{{msg.contenu}} - {{msg.idUser.nom}} - {{msg.createdAt|date('d/m/Y H:i')}}</li>
+        {% else %}
+            <li><a href="/">Creer une conversation</a></li>
+        {% endfor %}
+    </ul>
+</div>
 
 <a href="{{ path('app_home') }}">Acceuil</a>
-{% endblock %}

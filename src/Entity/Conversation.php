@@ -28,6 +28,18 @@ class Conversation
     #[ORM\OneToMany(targetEntity: Message::class, mappedBy: 'idConversation')]
     private Collection $messages;
 
+    private ?string $firstMessage = null;
+
+    public function getFirstMessage(): ?string
+    {
+        return $this->firstMessage;
+    }
+
+    public function setFirstMessage(?string $msg): void
+    {
+        $this->firstMessage = $msg;
+    }
+
     public function __construct()
     {
         $this->messages = new ArrayCollection();
@@ -91,4 +103,5 @@ class Conversation
 
         return $this;
     }
+
 }

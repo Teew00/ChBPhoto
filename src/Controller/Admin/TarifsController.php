@@ -65,7 +65,7 @@ class TarifsController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'app_admin_tarifs_delete', methods: ['POST'])]
+    #[Route('/{id}/delete', name: 'app_admin_tarifs_delete', methods: ['POST'])]
     public function tarifsDelete(Request $request, Tarifs $tarif, EntityManagerInterface $entityManager): Response
     {
         $token = $request->request->get('_token');

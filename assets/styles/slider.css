@@ -106,11 +106,11 @@
 }
 
 .slider .slider-before {
-    background-image: url('../img/Mars.jpg');
+    background-image: url('../../public/img/Mars.jpg');
 }
 
 .slider .slider-after {
-    background-image: url('../img/Mai.jpg');
+    background-image: url('../../public/img/Mai.jpg');
 }
 
 .slider .slider-separator:before {

@@ -28,6 +28,12 @@ class Message
     #[ORM\JoinColumn(nullable: false)]
     private ?Conversation $idConversation = null;
 
+    public function __construct()
+    {
+
+        $this->createdAt = new \DateTimeImmutable();
+    }
+
     public function getId(): ?int
     {
         return $this->id;

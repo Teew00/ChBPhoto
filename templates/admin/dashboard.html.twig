@@ -15,7 +15,7 @@
             <li><a href="/">{{ msg.idUser.nom }} - {{ msg.idUser.prenom }} - {{ msg.idConversation.titre }}</a></li>
         {% endfor %}
     </ul>
-    <a href="/">Voir plus</a>
+    <a href="{{ path('app_admin_conversation_index') }}">Voir plus</a>
 </div>
 
 <div>

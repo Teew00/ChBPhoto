@@ -1,0 +1,8 @@
+<div>
+    <h2>Conversasions</h2>
+    <ul>
+        {% for conv in conversations %}
+            <li><a href="{{ path('app_conversation_show', {'id': conv.id}) }}">{{ conv.idUser.nom }} - {{ conv.idUser.prenom }} - {{ conv.titre }}</a></li>
+        {% endfor %}
+    </ul>
+</div>
