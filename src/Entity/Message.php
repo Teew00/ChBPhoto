@@ -21,7 +21,7 @@ class Message
     private ?\DateTimeImmutable $createdAt = null;
 
     #[ORM\ManyToOne(inversedBy: 'messages')]
-    #[ORM\JoinColumn(nullable: false)]
+    #[ORM\JoinColumn(nullable: true, onDelete: 'SET NULL')]
     private ?User $idUser = null;
 
     #[ORM\ManyToOne(inversedBy: 'messages')]

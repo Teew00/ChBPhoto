@@ -1,10 +1,8 @@
 .form-container{
-    width: 100vw;
-    height: 100vh;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    border-radius: 2rem;
+    padding: 2rem 3rem;
+    width: 25%;
 }
 
 form {
@@ -13,4 +11,77 @@ form {
     justify-content: center;
     align-items: center;
     gap: 1rem;
+    width: 100%;
+}
+
+.alert {
+    position: absolute;
+    display: flex;
+    width: 50%;
+    padding: 1rem;
+    top: 2rem;
+    background-color: lightgray;
+    border-radius: 2rem;
+    justify-content: center;
+}
+
+.formulaire {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    width: 100%;
+}
+
+h1 {
+    color: var(--color-two);
+}
+
+label {
+    color: var(--color-two);
+    text-align: left;
+}
+input, textarea {
+    border-radius: 2rem;
+    outline: none;
+    width: 100%;
+    font-size: 1.5rem;
+    color: var(--color-three);
+    border: 2px solid transparent;
+}
+
+input::selection, textarea::selection {
+    background-color: var(--color-one);
+}
+
+input:focus, textarea:focus {
+    border-color: var(--color-three);
+}
+
+form div div {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+}
+
+form div {
+    width: 100%;
+}
+
+a {
+    color: var(--color-two);
+}
+
+a:hover {
+    color: var(--color-four);
 }

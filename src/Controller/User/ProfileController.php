@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Controller\User;
 
-use App\Form\EditUserType;
+use App\Form\ChangePasswordType;
 use App\Form\UserType;
 use App\Repository\ConversationRepository;
 use App\Repository\MessageRepository;
@@ -30,6 +30,7 @@ class ProfileController extends AbstractController
         $conversation = $conversationRepository->findBy(['idUser' => $user]);
 
         $messages = null;
+        $idConversation = null;
 
         if ($conversation) {
             $messages = $messageRepository->findBy(
@@ -37,32 +38,87 @@ class ProfileController extends AbstractController
                 ['createdAt' => 'DESC'],
                 2
             );
+
+            $idConversation = $conversation[0]->getId();
         }
 
         return $this->render('profile/index.html.twig', [
             'user' => $user,
             'messages' => $messages,
-        ]);
+            'idConversation' => $idConversation,
+            ]);
     }
 
-    #[Route('/modifier/{id}', name: 'app_user_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, EntityManagerInterface $entityManager, UserPasswordHasherInterface $passwordHasher): Response
+    #[Route('/modifier', name: 'app_user_edit', methods: ['GET', 'POST'])]
+    public function edit(
+        Request                     $request,
+        EntityManagerInterface      $entityManager,
+        UserPasswordHasherInterface $passwordHasher
+    ): Response
     {
         $user = $this->getUser();
 
-        $form = $this->createForm(EditUserType::class, $user);
+        $form = $this->createForm(UserType::class, $user);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            $plainPassword = $form->get('motDePasse')->getData();
+
+            if ($plainPassword) {
+                $hashedPassword = $passwordHasher->hashPassword($user, $plainPassword);
+                $user->setMotDePasse($hashedPassword);
+            }
+
             $entityManager->flush();
 
-            return $this->redirectToRoute('app_profile', [], Response::HTTP_SEE_OTHER);
+            $this->addFlash('success', 'Modification effectuée avec succès');
+
+            return $this->redirectToRoute('app_profile', [
+                'id' => $user->getId()
+            ], Response::HTTP_SEE_OTHER);
         }
 
         return $this->render('profile/user/edit.html.twig', [
             'user' => $user,
             'form' => $form,
         ]);
+    }
 
+    #[Route('/modifier/motdepasse', name: 'app_user_edit_password', methods: ['GET', 'POST'])]
+    public function changePassword(
+        Request                     $request,
+        UserPasswordHasherInterface $passwordHasher,
+        EntityManagerInterface      $em
+    ): Response
+    {
+        $user = $this->getUser();
+
+        $form = $this->createForm(ChangePasswordType::class);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $currentPassword = $form->get('currentPassword')->getData();
+            $newPassword = $form->get('newPassword')->getData();
+
+            // Vérifier l'ancien mot de passe
+            if (!$passwordHasher->isPasswordValid($user, $currentPassword)) {
+                $this->addFlash('error', 'Mot de passe actuel incorrect.');
+                return $this->redirectToRoute('app_user_edit_password');
+            }
+
+            // Hasher le nouveau mot de passe
+            $hashedPassword = $passwordHasher->hashPassword($user, $newPassword);
+            $user->setMotDePasse($hashedPassword);
+
+            $em->flush();
+
+            $this->addFlash('success', 'Mot de passe modifié avec succès.');
+            return $this->redirectToRoute('app_profile', ['id' => $user->getId()]);
+        }
+
+        return $this->render('profile/user/change_password.html.twig', [
+            'form' => $form->createView(),
+        ]);
     }
 }

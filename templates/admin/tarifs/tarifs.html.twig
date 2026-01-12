@@ -3,7 +3,8 @@
 {% block title %}ChB Photo - Tarifs{% endblock %}
 
 {% block stylesheets %}
-    <link rel="stylesheet" href="{{ asset('styles/tarifs.css') }}">{% endblock %}
+    <link rel="stylesheet" href="{{ asset('styles/tarifs.css') }}">
+{% endblock %}
 
 {% block body %}
     <div class=" tarifs">
@@ -12,24 +13,29 @@
             <div class="glass-overlay"></div>
             <div class="glass-specular"></div>
             <div class="glass-content tarifs-content">
-                <h2>Tarifs</h2>
-                <a href="{{ path('app_admin_tarifs_new') }}">{{ ux_icon('heroicons:plus-circle') }}</a>
+                <h2>Tarifs<a href="{{ path('app_admin_tarifs_new') }}"
+                             class="plus">{{ ux_icon('heroicons:plus-circle') }}</a></h2>
                 <ul>
                     {% for tarif in tarifs %}
                         <li class="glass-container tarifsline-container">
                             <div class="glass-filter"></div>
                             <div class="glass-overlay"></div>
                             <div class="glass-specular"></div>
-                            <div class="glass-content ">
-                                {{ tarif.titre }} - {{ tarif.description }} - {{ tarif.prix }}€
-                                <span>
+                            <div class="glass-content tarifsline-content">
+                                <div>
+                                    <h3>{{ tarif.titre }}</h3>
+                                    <p class="description">{{ tarif.description }}</p>
+                                </div>
+                                <div class="config">
+                                    <p>{{ tarif.prix }}€</p>
                                     <a href="{{ path('app_admin_tarifs_edit', {id: tarif.id}) }}">{{ ux_icon('heroicons:pencil-square') }}</a>
-                                </span>
-                                <form method="post" action="{{ path('app_admin_tarifs_delete', {'id': tarif.id}) }}"
-                                      onsubmit="return confirm('Êtes-vous sûr ?');">
-                                    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ tarif.id) }}">
-                                    <button class="btn btn-danger">{{ ux_icon('heroicons:trash') }}</button>
-                                </form>
+                                    <form method="post" action="{{ path('app_admin_tarifs_delete', {'id': tarif.id}) }}"
+                                          onsubmit="return confirm('Êtes-vous sûr ?');">
+                                        <input type="hidden" name="_token"
+                                               value="{{ csrf_token('delete' ~ tarif.id) }}">
+                                        <button class="">{{ ux_icon('heroicons:trash') }}</button>
+                                    </form>
+                                </div>
                             </div>
                         </li>
                     {% else %}

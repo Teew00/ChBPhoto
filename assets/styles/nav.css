@@ -64,3 +64,7 @@ nav:hover {
 nav:hover li {
     opacity: 1;
 }
+
+nav a:hover {
+    color: var(--color-three);
+}

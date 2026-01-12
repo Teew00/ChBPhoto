@@ -3,6 +3,7 @@
     --color-two: #030059;
     --color-three: #0035BD;
     --color-four: #04ABBA;
+    --bg-color: black;
     --lg-bg-color: rgba(255, 255, 255, 0.25);
     --lg-highlight: rgba(255, 255, 255, 0.75);
     --lg-text: #ffffff;
@@ -17,7 +18,6 @@
     padding: 0;
     list-style: none;
     font-family: Poppins, serif;
-    color: var(--color-two);
     text-decoration: none;
 }
 
@@ -55,6 +55,12 @@ header {
     gap: 30px;
 }
 
+.carte-content h1,
+.carte-content p,
+.carte-content a{
+    color: var(--color-two);
+}
+
 .btn {
     width: 200px;
     height: 50px;
@@ -64,6 +70,12 @@ header {
     border-radius: 100px;
     cursor: pointer;
     font-size: 1.2rem;
+    border: 2px solid transparent;
+}
+
+.btn:hover {
+    border-color: var(--color-three);
+    background-color: var(--lg-highlight);
 }
 
 footer {

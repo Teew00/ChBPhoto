@@ -5,7 +5,6 @@ namespace App\Controller;
 use App\Entity\Galerie;
 use App\Repository\GalerieRepository;
 use App\Repository\TarifsRepository;
-use App\Service\TarifProvider;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;

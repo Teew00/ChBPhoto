@@ -19,7 +19,7 @@ class Conversation
     private ?string $titre = null;
 
     #[ORM\ManyToOne(inversedBy: 'conversations')]
-    #[ORM\JoinColumn(nullable: false)]
+    #[ORM\JoinColumn(nullable: true, onDelete: 'SET NULL')]
     private ?User $idUser = null;
 
     /**

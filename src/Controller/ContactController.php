@@ -19,28 +19,15 @@ class ContactController extends AbstractController
     #[Route('/contact')]
     public function contact(Request $request, EntityManagerInterface $entityManager): Response
     {
+        $user = $this->getUser();
+
+        if(!$user){
+            $this->addFlash('info', 'Connecter vous pour pouvoir acceder à la messagerie');
+            return $this->redirectToRoute('app_register');
+        }
+
         $conversation = new Conversation();
-        $conversation->setIdUser($this->getUser());
-//
-//        $formConv = $this->createForm(ConversationType::class, $conversation);
-//        $formConv->handleRequest($request);
-//
-//        $message = new Message();
-//        $message->setIdUser($this->getUser());
-//
-//        $formMsg = $this->createForm(MessageType::class, $message);
-//        $formMsg->handleRequest($request);
-//
-//        if ($formConv->isSubmitted() && $formConv->isValid()) {
-//            $entityManager->persist($conversation);
-//            $entityManager->flush();
-//
-//            if ($formMsg->isSubmitted() && $formMsg->isValid()) {
-//                $message->setIdConversation($conversation);
-//                $entityManager->persist($message);
-//                $entityManager->flush();
-//            }
-//        }
+        $conversation->setIdUser($user);
 
         $form = $this->createForm(ConversationType::class, $conversation);
         $form->handleRequest($request);
@@ -51,7 +38,7 @@ class ContactController extends AbstractController
 
             $message = new Message();
             $message->setIdConversation($conversation);
-            $message->setIdUser($this->getUser());
+            $message->setIdUser($user);
             $message->setContenu($form->get('firstMessage')->getData());
 
             $entityManager->persist($message);

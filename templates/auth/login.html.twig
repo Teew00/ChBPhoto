@@ -1,33 +1,44 @@
 {% extends 'base.html.twig' %}
 
 {% block stylesheets %}
-    <link rel="stylesheet" href="{{ asset('styles/forms.css') }}">{% endblock %}
+    <link rel="stylesheet" href="{{ asset('styles/forms.css') }}">
+{% endblock %}
 
 {% block title %}Connexion{% endblock %}
 
 {% block body %}
-    <div class="form-container">
-        <div class="glass-container carte">
-            <div class="glass-filter"></div>
-            <div class="glass-overlay"></div>
-            <div class="glass-specular"></div>
-            <div class="glass-content carte-content">
+    <div class="formulaire">
+        <div class="form-container">
+            <div class="glass-container carte">
+                <div class="glass-filter"></div>
+                <div class="glass-overlay"></div>
+                <div class="glass-specular"></div>
+                <div class="glass-content form-content">
 
-                <h1>Connexion</h1>
+                    <h1>Connexion</h1>
 
-                {% if error %}
-                    <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-                {% endif %}
+                    {% if error %}
+                        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                    {% endif %}
 
-                <form action="{{ path('app_login') }}" method="post">
-                    <label for="email">Email:</label>
-                    <input type="text" id="email" name="_username" value="{{ last_username }}" required autofocus>
+                    <form action="{{ path('app_login') }}" method="post">
+                        <div>
+                            <div>
+                                <label for="email">Email:</label>
+                                <input type="text" id="email" name="_username" value="{{ last_username }}" required
+                                       autofocus
+                                       placeholder="Email">
+                            </div>
+                            <div>
+                                <label for="password">Mot de passe:</label>
+                                <input type="password" id="password" name="_password" required
+                                       placeholder="Mot de passe">
+                            </div>
+                        </div>
 
-                    <label for="password">Mot de passe:</label>
-                    <input type="password" id="password" name="_password" required>
-
-                    <button type="submit">Se connecter</button>
-                </form>
+                        <button class="btn" type="submit">Se connecter</button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>

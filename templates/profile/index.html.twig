@@ -6,16 +6,29 @@
     <p>Téléphone : {{ user.telephone }}</p>
     <p>Email : {{ user.email }}</p>
     <a href="{{ path('app_user_edit', {'id': user.id}) }}">Modifier les informations</a>
+    <a href="{{ path('app_user_edit_password', {'id': user.id}) }}">Modifier votre mot de passe</a>
+
 </div>
 <div>
     <h3>Vos derniers messages</h3>
     <ul>
         {% for msg in messages %}
-            <li>{{msg.contenu}} - {{msg.idUser.nom}} - {{msg.createdAt|date('d/m/Y H:i')}}</li>
+            <li>{{ msg.contenu }} - {{ msg.idUser.nom }} - {{ msg.createdAt|date('d/m/Y H:i') }}</li>
         {% else %}
-            <li><a href="/">Creer une conversation</a></li>
+            <li><a href="{{ path('app_hom') }}">Creer une conversation</a></li>
         {% endfor %}
     </ul>
+    {% if idConversation %}
+        <a href="{{ path('app_conversation_show', {'id': idConversation}) }}">Voir plus</a>
+    {% endif %}
 </div>
+
+{% for label, messages in app.flashes %}
+    {% for message in messages %}
+        <div class="alert alert-{{ label }}">
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endfor %}
 
 <a href="{{ path('app_home') }}">Acceuil</a>
