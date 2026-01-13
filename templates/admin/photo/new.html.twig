@@ -1,4 +1,28 @@
-{{ form_start(form) }}
-    {{ form_widget(form) }}
-<button class="btn">{{ button_label|default('Save') }}</button>
-{{ form_end(form) }}
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('styles/forms.css') }}">
+{% endblock %}
+
+{% block body %}
+    <div class="glass-container return">
+        <div class="glass-filter"></div>
+        <div class="glass-overlay"></div>
+        <div class="glass-specular"></div>
+        <div class="glass-content">
+            <a href="{{ path('app_admin_galerie_show', {'id': idGalerie}) }}">{{ ux_icon('heroicons:arrow-uturn-left') }}</a>
+        </div>
+    </div>
+    <div class="formulaire">
+        <div class="glass-container form-container">
+            <div class="glass-filter"></div>
+            <div class="glass-overlay"></div>
+            <div class="glass-specular"></div>
+            <div class="glass-content form-content">
+
+                <h1>Ajouter une photo</h1>
+                {{ include('admin/photo/_form.html.twig', {'button_label': 'Ajouter'}) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}

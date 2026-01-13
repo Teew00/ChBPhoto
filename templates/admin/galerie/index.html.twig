@@ -1,26 +1,45 @@
-<h1>Galerie index</h1>
+{% extends 'base.html.twig' %}
 
-<table class="table">
-    <thead>
-    <tr>
-        <th>Id</th>
-        <th>Titre</th>
-        <th>actions</th>
-    </tr>
-    </thead>
-    <tbody>
-    {% for galerie in galeries %}
-        <tr>
-            <td>{{ galerie.id }}</td>
-            <td>{{ galerie.titre }}</td>
-            <td>
-                <a href="{{ path('app_admin_galerie_show', {'id': galerie.id}) }}">show</a>
-            </td>
-        </tr>
-    {% else %}
-        <tr>
-            <td colspan="3">no records found</td>
-        </tr>
-    {% endfor %}
-    </tbody>
-</table>
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('styles/dashboard.css') }}">
+{% endblock %}
+
+{% block title %}ChB Photo - Dashboard{% endblock %}
+
+{% block body %}
+    <div class="glass-container return">
+        <div class="glass-filter"></div>
+        <div class="glass-overlay"></div>
+        <div class="glass-specular"></div>
+        <div class="glass-content">
+            <a href="{{ path('app_admin_dashboard') }}">{{ ux_icon('heroicons:arrow-uturn-left') }}</a>
+        </div>
+    </div>
+    <div class="galerieIndex">
+        <div class="glass-container galerie-container">
+            <div class="glass-filter"></div>
+            <div class="glass-overlay"></div>
+            <div class="glass-specular"></div>
+            <div class="glass-content galerie-content">
+                <h2>Quelle galerie modifier ?</h2>
+                <ul>
+                    {% for galerie in galeries %}
+
+                        <li class="glass-container galerieLine-container">
+                            <div class="glass-filter"></div>
+                            <div class="glass-overlay"></div>
+                            <div class="glass-specular"></div>
+                            <div class="glass-content galerieLine-content">
+                                <a href="{{ path('app_admin_galerie_show', {'id': galerie.id}) }}">
+                                    {{ galerie.id }} - {{ galerie.titre }}</a>
+                            </div>
+                        </li>
+
+                    {% else %}
+                        <li>no records found</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -7,7 +7,7 @@
     --lg-bg-color: rgba(255, 255, 255, 0.25);
     --lg-highlight: rgba(255, 255, 255, 0.75);
     --lg-text: #ffffff;
-    --lg-hover-glow: rgba(255, 255, 255, 0.4);
+    --lg-hover-glow: rgba(225, 225, 225, 0.75);
     --lg-red: #fb4268;
     --lg-grey: #5b5b5b;
 }
@@ -27,11 +27,21 @@ body {
 }
 
 header {
-    background: url('../img/couverture.jpg');
-    height: 100vh;
-    background-size: cover;
+    width: 100vw;
     display: flex;
     align-items: center;
+}
+
+.home {
+    background: url('../img/couverture.jpg');
+    background-size: cover;
+    height: 100vh;
+}
+
+.apropos {
+    background: url('../img/couverture.jpg');
+    background-size: cover;
+    height: 90vh;
 }
 
 .carte {
@@ -67,15 +77,22 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 100px;
+    border-radius: 2rem;
     cursor: pointer;
     font-size: 1.2rem;
     border: 2px solid transparent;
 }
 
-.btn:hover {
-    border-color: var(--color-three);
-    background-color: var(--lg-highlight);
+.btn .glass-filter,
+.btn .glass-overlay,
+.btn .glass-specular,
+.btn .glass-content {
+    border-radius: 2rem;
+    transition: background 0.3s;
+}
+
+.btn:hover .glass-overlay {
+    background: var(--lg-hover-glow);
 }
 
 footer {
@@ -151,10 +168,44 @@ section {
     color: var(--lg-text);
     width: 75%;
 }
+
 h2 {
     font-size: 2.5rem;
     color: var(--lg-text);
 }
 .desc p {
     font-size: 1.5rem;
+}
+
+.return {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    border-radius: 2rem;
+    position: absolute;
+    top: 2%;
+    left: 6%;
+}
+
+.return .glass-content {
+    width: 100%;
+    height: 100%;
+}
+
+.return .glass-content a {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    color: var(--color-two);
+    padding: 0.5rem;
+}
+
+.return:hover .glass-overlay {
+    background: var(--lg-hover-glow);
+}
+.return:hover a {
+    color: var(--color-three);
 }

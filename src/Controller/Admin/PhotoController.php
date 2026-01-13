@@ -59,6 +59,7 @@ class PhotoController extends AbstractController
         return $this->render('admin/photo/new.html.twig', [
             'photo' => $photo,
             'form' => $form,
+            'idGalerie' => $idGalerie,
         ]);
     }
 
@@ -97,6 +98,7 @@ class PhotoController extends AbstractController
         return $this->render('admin/photo/edit.html.twig', [
             'photo' => $photo,
             'form' => $form,
+            'idGalerie' => $idGalerie,
         ]);
     }
 

@@ -1,0 +1,71 @@
+.admin-msg,
+.user-msg {
+    display: flex;
+    align-items: center;
+    border-radius: 2rem;
+    width: 60%;
+    padding: 1rem;
+    overflow: initial;
+}
+
+.user-msg .glass-overlay {
+    background: rgba(0, 53, 189, 0.67);
+}
+
+.admin-msg .glass-overlay {
+    background: rgba(0, 255, 26, 0.67);
+}
+
+.conversation {
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+}
+
+.admin-msg,
+.admin-date {
+    align-self: flex-end;
+}
+
+.user-msg,
+.user-date {
+    align-self: flex-start;
+}
+
+.conv-container {
+    display: flex;
+    border-radius: 2rem;
+    padding: 2rem 3rem;
+    width: 50%;
+    height: auto;
+}
+
+.conv-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    width: 100%;
+    height: auto;
+    margin: 1rem;
+}
+
+.user-date,
+.admin-date {
+    font-size: 0.8rem;
+}
+
+.user-date {
+    position: relative;
+    left: 3%;
+}
+
+.admin-date {
+    position: relative;
+    right: 3%;
+}
+
+.conv-content h2 {
+    color: var(--color-two);
+}

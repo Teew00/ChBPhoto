@@ -7,6 +7,14 @@
 {% endblock %}
 
 {% block body %}
+    <div class="glass-container return">
+        <div class="glass-filter"></div>
+        <div class="glass-overlay"></div>
+        <div class="glass-specular"></div>
+        <div class="glass-content">
+            <a href="{{ path('app_admin_dashboard') }}">{{ ux_icon('heroicons:arrow-uturn-left') }}</a>
+        </div>
+    </div>
     <div class=" tarifs">
         <div class="glass-container tarifs-container">
             <div class="glass-filter"></div>

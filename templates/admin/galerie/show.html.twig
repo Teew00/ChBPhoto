@@ -1,17 +1,38 @@
 {% extends 'base.html.twig' %}
 
-{% block stylesheets %}<link rel="stylesheet" href="{{ asset('styles/galeries.css') }}">{% endblock %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('styles/galeries.css') }}">
+{% endblock %}
 
 {% block body %}
-<div class="galerie">
-    <h2>Galerie photo</h2>
-    <ul>
-        {% for photo in galerie.photos %}
-            <li><img src="{{ asset('img/' ~ photo.url) }}" alt="{{ photo.titre }}"/> {{ photo.titre }} <a href="{{ path('app_admin_photo_edit', {'idGalerie': galerie.id, 'id': photo.id}) }}">{{ ux_icon('heroicons:pencil-square') }}</a></li>
-        {% else %}
-            <li>Aucune photo</li>
-        {% endfor %}
-            <li class="plus"><a href="{{ path('app_admin_photo_new', {'idGalerie': galerie.id}) }}">{{ ux_icon('heroicons:plus') }}</a></li>
-    </ul>
-</div>
+    <div class="galerie">
+        <div class="glass-container return">
+            <div class="glass-filter"></div>
+            <div class="glass-overlay"></div>
+            <div class="glass-specular"></div>
+            <div class="glass-content">
+                <a href="{{ path('app_admin_galerie') }}">{{ ux_icon('heroicons:arrow-uturn-left') }}</a>
+            </div>
+        </div>
+        <h2>Galerie photo</h2>
+        <ul>
+            {% for photo in galerie.photos %}
+                <li><img src="{{ asset('img/' ~ photo.url) }}" alt="{{ photo.titre }}"/>
+                    {{ photo.titre }}
+                    <a class="edit"
+                       href="{{ path('app_admin_photo_edit', {'idGalerie': galerie.id, 'id': photo.id}) }}">{{ ux_icon('heroicons:pencil-square') }}</a>
+                </li>
+            {% else %}
+                <li>Aucune photo</li>
+            {% endfor %}
+            <li class="glass-container plus">
+                <div class="glass-filter"></div>
+                <div class="glass-overlay"></div>
+                <div class="glass-specular"></div>
+                <div class="glass-content">
+                    <a href="{{ path('app_admin_photo_new', {'idGalerie': galerie.id}) }}">{{ ux_icon('heroicons:plus') }}</a>
+                </div>
+            </li>
+        </ul>
+    </div>
 {% endblock %}

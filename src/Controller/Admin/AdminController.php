@@ -24,7 +24,7 @@ class AdminController extends AbstractController
         $lastUsers = $userRepository->findLast(4);
         $lastMessages = $messageRepository->findLast(4);
 
-        return $this->render('admin/dashboard.html.twig', [
+        return $this->render('admin/dashboard/dashboard.html.twig', [
             'lastUser' => $lastUsers,
             'lastMessage' => $lastMessages,
         ]);

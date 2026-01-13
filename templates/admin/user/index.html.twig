@@ -1,39 +1,55 @@
+{% extends 'base.html.twig' %}
 
-    <h1>User index</h1>
+{% block title %}ChB Photo - Dashboard{% endblock %}
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Nom</th>
-                <th>Prenom</th>
-                <th>Email</th>
-                <th>Telephone</th>
-                <th>Role</th>
-                <th>EstVerifie</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for user in users %}
-            <tr>
-                <td>{{ user.id }}</td>
-                <td>{{ user.nom }}</td>
-                <td>{{ user.prenom }}</td>
-                <td>{{ user.email }}</td>
-                <td>{{ user.telephone }}</td>
-                <td>{{ user.role.value }}</td>
-                <td>{{ user.estVerifie ? 'Yes' : 'No' }}</td>
-                <td>
-                    <a href="{{ path('app_admin_user_show', {'id': user.id}) }}">show</a>
-                    <a href="{{ path('app_admin_user_edit', {'id': user.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="9">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('styles/dashboard.css') }}">
+{% endblock %}
 
+{% block body %}
+    <div class="glass-container return">
+        <div class="glass-filter"></div>
+        <div class="glass-overlay"></div>
+        <div class="glass-specular"></div>
+        <div class="glass-content">
+            <a href="{{ path('app_admin_dashboard') }}">{{ ux_icon('heroicons:arrow-uturn-left') }}</a>
+        </div>
+    </div>
+    <div class="userIndex">
+        <div class="glass-container user-container">
+            <div class="glass-filter"></div>
+            <div class="glass-overlay"></div>
+            <div class="glass-specular"></div>
+            <div class="glass-content user">
+                <h1>Liste des utilisateurs</h1>
+                <ul class="user-content">
+                    {% for user in users %}
+                        <li class="glass-container line-container">
+                            <div class="glass-filter"></div>
+                            <div class="glass-overlay"></div>
+                            <div class="glass-specular"></div>
+                            <div class="glass-content line-content">
+                                <ul>
+                                    <li>Nom : {{ user.nom }}</li>
+                                    <li>Prénom : {{ user.prenom }}</li>
+                                    <li>Email : {{ user.email }}</li>
+                                    <li>Tel : {{ user.telephone }}</li>
+                                    <li>Rôle : {{ user.role.value }}</li>
+
+                                    <li>
+                                        <a href="{{ path('app_admin_user_edit', {'id': user.id}) }}"
+                                           class="edit">{{ ux_icon('heroicons:pencil-square') }}</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    {% else %}
+                        <li>
+                            Pas d'utilisateurs trouvés
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}

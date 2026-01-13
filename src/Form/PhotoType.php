@@ -21,7 +21,7 @@ class PhotoType extends AbstractType
             ->add('imageFile', FileType::class, [
                 'label'=>'Photo',
                 'mapped'=>false,
-                'required'=>true,
+                'required'=>false,
                 'constraints' => [
                     new File([
                         'maxSize'=>'5M',

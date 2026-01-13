@@ -85,3 +85,13 @@ a {
 a:hover {
     color: var(--color-four);
 }
+
+.btn:hover {
+    border-color: var(--color-three);
+    background-color: var(--lg-highlight);
+}
+
+a,
+.btn {
+    transition: all 0.3s;
+}
