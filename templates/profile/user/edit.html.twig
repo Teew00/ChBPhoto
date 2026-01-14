@@ -1,7 +1,35 @@
-{{ form_start(form) }}
-        {{ form_widget(form) }}
-<button class="btn">{{ button_label|default('Save') }}</button>
+{% extends 'base.html.twig' %}
 
-{{ form_end(form) }}
+{% block title %}Chb Photo - Nouveau tarif{% endblock %}
 
-<a href="{{ path('app_user_edit_password', {'id': user.id}) }}">Modifier votre mot de passe</a>
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('styles/forms.css') }}">
+{% endblock %}
+
+{% block body %}
+    <div class="glass-container return">
+        <div class="glass-filter"></div>
+        <div class="glass-overlay"></div>
+        <div class="glass-specular"></div>
+        <div class="glass-content">
+            <a href="{{ path('app_profile') }}">{{ ux_icon('heroicons:arrow-uturn-left') }}</a>
+        </div>
+    </div>
+    <div class="formulaire">
+        <div class="glass-container form-container">
+            <div class="glass-filter"></div>
+            <div class="glass-overlay"></div>
+            <div class="glass-specular"></div>
+            <div class="glass-content form-content">
+                <h1>Modifier vos information</h1>
+                {{ form_start(form) }}
+                {{ form_widget(form) }}
+                <button class="btn">{{ button_label|default('Modifier') }}</button>
+
+                {{ form_end(form) }}
+
+                <a href="{{ path('app_user_edit_password', {'id': user.id}) }}">Modifier votre mot de passe</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -7,7 +7,6 @@ namespace App\Controller;
 use App\Entity\Conversation;
 use App\Entity\Message;
 use App\Form\ConversationType;
-use App\Form\MessageType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -44,10 +43,7 @@ class ContactController extends AbstractController
             $entityManager->persist($message);
             $entityManager->flush();
 
-            $this->addFlash(
-                'success',
-                'La conversation a été créée avec succès !'
-            );
+            return $this->redirectToRoute('app_conversation_show', ['id'=>$conversation->getId()], Response::HTTP_SEE_OTHER);
         }
 
 

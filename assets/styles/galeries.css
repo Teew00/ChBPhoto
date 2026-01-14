@@ -11,13 +11,14 @@ header {
     gap: 20px;
 }
 
-.galerie li {
+.galerie li div {
     color: var(--lg-text);
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    height: 50vh;
 }
 
 .galerie ul {
@@ -31,7 +32,8 @@ header {
 
 .galerie img {
     width: 100%;
-    height: auto;
+    height: 90%;
+    object-fit: contain;
 }
 
 .plus {
@@ -74,4 +76,32 @@ header {
 
 .edit:hover {
     color: var(--color-four);
+}
+
+.photo-container {
+    cursor: pointer;
+    transition: transform 1s;
+}
+
+.photo-container .croix {
+    display: none;
+    position: absolute;
+    top: 5%;
+    right: 10%;
+    font-size: 5rem;
+    cursor: pointer;
+}
+
+.photo-zoom {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100vw;
+    height: 100vh !important;
+    background: rgba(0, 0, 0, 0.65);
+    cursor: default;
+}
+
+.photo-zoom .croix {
+    display: block;
 }

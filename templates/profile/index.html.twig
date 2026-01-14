@@ -1,34 +1,111 @@
-<div>
-    <h3>Vos informations</h3>
+{% extends 'base.html.twig' %}
 
-    <p>Nom : {{ user.nom }}</p>
-    <p>Prenom : {{ user.prenom }}</p>
-    <p>Téléphone : {{ user.telephone }}</p>
-    <p>Email : {{ user.email }}</p>
-    <a href="{{ path('app_user_edit', {'id': user.id}) }}">Modifier les informations</a>
-    <a href="{{ path('app_user_edit_password', {'id': user.id}) }}">Modifier votre mot de passe</a>
+{% block title %}ChB Photo - Dashboard{% endblock %}
 
-</div>
-<div>
-    <h3>Vos derniers messages</h3>
-    <ul>
-        {% for msg in messages %}
-            <li>{{ msg.contenu }} - {{ msg.idUser.nom }} - {{ msg.createdAt|date('d/m/Y H:i') }}</li>
-        {% else %}
-            <li><a href="{{ path('app_hom') }}">Creer une conversation</a></li>
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('styles/dashboard.css') }}">
+    <link rel="stylesheet" href="{{ asset('styles/profile.css') }}">
+{% endblock %}
+
+{% block body %}
+    <div class="galerieIndex">
+        {% for label, messages in app.flashes %}
+            {% for message in messages %}
+                <div class="alert alert-{{ label }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
         {% endfor %}
-    </ul>
-    {% if idConversation %}
-        <a href="{{ path('app_conversation_show', {'id': idConversation}) }}">Voir plus</a>
-    {% endif %}
-</div>
+        <div class="profile">
+            <div class="glass-container dashboard-element">
+                <div class="glass-filter"></div>
+                <div class="glass-overlay"></div>
+                <div class="glass-specular"></div>
+                <div class="glass-content dashboard-content">
+                    <h2>Vos informations</h2>
 
-{% for label, messages in app.flashes %}
-    {% for message in messages %}
-        <div class="alert alert-{{ label }}">
-            {{ message }}
+                    <ul class="infoUser">
+                        <li>Nom : <span>{{ user.nom }}</span></li>
+                        <li>Prenom : <span>{{ user.prenom }}</span></li>
+                        <li>Téléphone : <span>{{ user.telephone }}</span></li>
+                        <li>Email : <span>{{ user.email }}</span></li>
+                    </ul>
+
+                    <div class="glass-container btn">
+                        <div class="glass-filter"></div>
+                        <div class="glass-overlay"></div>
+                        <div class="glass-specular"></div>
+                        <div class="glass-content">
+                            <a href="{{ path('app_user_edit', {'id': user.id}) }}">Modifier les informations</a>
+                        </div>
+                    </div>
+                    <div class="glass-container btn">
+                        <div class="glass-filter"></div>
+                        <div class="glass-overlay"></div>
+                        <div class="glass-specular"></div>
+                        <div class="glass-content">
+                            <a href="{{ path('app_user_edit_password', {'id': user.id}) }}">Modifier votre mot de
+                                passe</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="glass-container dashboard-element">
+                <div class="glass-filter"></div>
+                <div class="glass-overlay"></div>
+                <div class="glass-specular"></div>
+                <div class="glass-content dashboard-content">
+                    <h2>Vos derniers messages</h2>
+                    <ul class="conversation">
+                        {% for message in messages %}
+                            {% if 'ROLE_ADMIN' in message.idUser.roles %}
+                                <li class="glass-container admin-msg">
+                                    <div class="glass-filter"></div>
+                                    <div class="glass-overlay"></div>
+                                    <div class="glass-specular"></div>
+                                    <div class="glass-content msg">
+                                        {{ message.contenu }}
+                                    </div>
+                                </li>
+                                <p class="admin-date">{{ message.idUser.prenom }}
+                                    - {{ message.createdAt|date('d/m/Y H:i') }}</p>
+                            {% else %}
+                                <li class="glass-container user-msg">
+                                    <div class="glass-filter"></div>
+                                    <div class="glass-overlay"></div>
+                                    <div class="glass-specular"></div>
+                                    <div class="glass-content msg">
+                                        {{ message.contenu }}
+                                    </div>
+                                </li>
+                                <p class="user-date">{{ message.idUser.prenom }}
+                                    - {{ message.createdAt|date('d/m/Y H:i') }}</p>
+                            {% endif %}
+                        {% else %}
+                            <li class="glass-container btn">
+                                <div class="glass-filter"></div>
+                                <div class="glass-overlay"></div>
+                                <div class="glass-specular"></div>
+                                <div class="glass-content">
+                                    <a href="{{ path('app_contact_contact') }}">Creer une conversation</a>
+                                </div>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                    {% if idConversation %}
+                        <div class="glass-container btn">
+                            <div class="glass-filter"></div>
+                            <div class="glass-overlay"></div>
+                            <div class="glass-specular"></div>
+                            <div class="glass-content">
+                                <a href="{{ path('app_conversation_show', {'id': idConversation}) }}">Voir plus</a>
+                            </div>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
         </div>
-    {% endfor %}
-{% endfor %}
-
-<a href="{{ path('app_home') }}">Acceuil</a>
+    </div>
+{% endblock %}

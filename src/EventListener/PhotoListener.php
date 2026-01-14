@@ -3,11 +3,10 @@
 namespace App\EventListener;
 
 use App\Entity\Photo;
-use Doctrine\Persistence\Event\LifecycleEventArgs;
 
 class PhotoListener
 {
-    public function preRemove(Photo $photo, LifecycleEventArgs $args): void
+    public function preRemove(Photo $photo): void
     {
         $filename = $photo->getUrl();
 
@@ -15,7 +14,7 @@ class PhotoListener
             return;
         }
 
-        $filePath = __DIR__ . '/../../public/' . $filename;
+        $filePath = __DIR__ . '/../../public/img/' . $filename;
 
         if (file_exists($filePath)) {
             unlink($filePath);

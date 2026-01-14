@@ -2,6 +2,9 @@
 
 {% block title %}ChB Photo - Objet{% endblock %}
 
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('styles/galeries.css') }}">{% endblock %}
+
 {% block body %}
     <header class="objet"></header>
     <div class="desc">
@@ -19,10 +22,17 @@
         <h2>Galerie photo</h2>
         <ul>
             {% for photo in galerie.photos %}
-                <li><img src="{{ asset('img/' ~ photo.url) }}" alt="{{ photo.titre }}"/> {{ photo.titre }}</li>
+                <li>
+                    <div class="photo-container">
+                        {{ ux_icon('heroicons:x-mark', {class:"croix"}) }}
+                        <img src="{{ asset('img/' ~ photo.url) }}" alt="{{ photo.titre }}"/>
+                        {{ photo.titre }}
+                    </div>
+                </li>
             {% else %}
                 <li>Aucun message</li>
             {% endfor %}
         </ul>
     </div>
+    <script src="{{ asset('js/photoZoom.js') }}"></script>
 {% endblock %}

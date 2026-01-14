@@ -45,6 +45,7 @@ form {
 
 h1 {
     color: var(--color-two);
+    text-align: center;
 }
 
 label {
