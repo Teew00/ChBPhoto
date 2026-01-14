@@ -1,0 +1,46 @@
+/* ========== GLASS CONTAINER ========== */
+.glass-container {
+    position: relative;
+    font-weight: 600;
+    background: transparent;
+    overflow: hidden;
+    box-shadow: 0 6px 6px rgba(0, 0, 0, 0.2), 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+/* ========== GLASS FILTER ========== */
+.glass-filter {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    backdrop-filter: blur(0px);
+    filter: url(#lg-dist);
+    isolation: isolate;
+    border-radius: inherit;
+}
+
+/* ========== GLASS COLOR ========== */
+.glass-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: var(--lg-bg-color);
+    transition: background 0.3s;
+    border-radius: inherit;
+}
+
+/* ========== GLASS BORDER ========== */
+.glass-specular {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    border-radius: inherit;
+    overflow: hidden;
+    box-shadow: inset 1px 1px 0 var(--lg-highlight),
+    inset 0 0 5px var(--lg-highlight);
+}
+
+/* Garde l'interieur normal */
+.glass-content {
+    z-index: 3;
+    border-radius: inherit;
+}

@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ChB Photo - Tarifs{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('styles/tarifs.css') }}">
+{% endblock %}
+
+{% block body %}
+    <div class=" tarifs">
+        <div class="glass-container tarifs-container">
+            <div class="glass-filter"></div>
+            <div class="glass-overlay"></div>
+            <div class="glass-specular"></div>
+            <div class="glass-content tarifs-content">
+                <h2>Tarifs</h2>
+                <ul>
+                    {% for tarif in tarifs %}
+                        <li class="glass-container tarifsline-container">
+                            <div class="glass-filter"></div>
+                            <div class="glass-overlay"></div>
+                            <div class="glass-specular"></div>
+                            <div class="glass-content tarifsline-content">
+                                <div class="description">
+                                    <h3>{{ tarif.titre }}</h3>
+                                    <p>{{ tarif.description }}</p>
+                                </div>
+                                <p> {{ tarif.prix }}€ </p>
+                            </div>
+                        </li>
+                    {% else %}
+                        <li>Aucun Tarifs</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}

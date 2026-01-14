@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Chb Photo - Messagerie - {{ conversation.titre }}{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('styles/conversation.css') }}">
+    <link rel="stylesheet" href="{{ asset('styles/forms.css') }}">
+{% endblock %}
+
+{% block body %}
+    <div class="glass-container return">
+        <div class="glass-filter"></div>
+        <div class="glass-overlay"></div>
+        <div class="glass-specular"></div>
+        <div class="glass-content">
+            {% if 'ROLE_ADMIN' in app.user.roles %}
+                <a href="{{ path('app_admin_conversation_index') }}">{{ ux_icon('heroicons:arrow-uturn-left') }}</a>
+            {% else %}
+                <a href="{{ path('app_profile') }}">{{ ux_icon('heroicons:arrow-uturn-left') }}</a>
+            {% endif %}
+        </div>
+    </div>
+    <div class="formulaire">
+        <div class="glass-container conv-container">
+            <div class="glass-filter"></div>
+            <div class="glass-overlay"></div>
+            <div class="glass-specular"></div>
+            <div class="glass-content conv-content">
+                <h2>{{ conversation.titre }}</h2>
+                <ul class="conversation">
+                    {% for message in conversation.messages %}
+                        {% if 'ROLE_ADMIN' in message.idUser.roles %}
+                            <li class="glass-container admin-msg">
+                                <div class="glass-filter"></div>
+                                <div class="glass-overlay"></div>
+                                <div class="glass-specular"></div>
+                                <div class="glass-content msg">
+                                    {{ message.contenu }}
+                                </div>
+                            </li>
+                            <p class="admin-date">{{ message.idUser.prenom }}
+                                - {{ message.createdAt|date('d/m/Y H:i') }}</p>
+                        {% else %}
+                            <li class="glass-container user-msg">
+                                <div class="glass-filter"></div>
+                                <div class="glass-overlay"></div>
+                                <div class="glass-specular"></div>
+                                <div class="glass-content msg">
+                                    {{ message.contenu }}
+                                </div>
+                            </li>
+                            <p class="user-date">{{ message.idUser.prenom }}
+                                - {{ message.createdAt|date('d/m/Y H:i') }}</p>
+                        {% endif %}
+                    {% else %}
+                        <li>Aucun message</li>
+                    {% endfor %}
+                </ul>
+                {{ include('conversation/_form.html.twig') }}
+            </div>
+        </div>
+    </div>
+{% endblock %}

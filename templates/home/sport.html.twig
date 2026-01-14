@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ChB Photo - Sport{% endblock %}
+
+{% block stylesheets %}<link rel="stylesheet" href="{{ asset('styles/galeries.css') }}">{% endblock %}
+
+{% block body %}
+    <header class="sport"></header>
+    <div class="desc">
+        <h2>Photographie de sport</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam pretium aliquet ligula non mollis. Proin
+            pellentesque lorem non auctor dignissim. Aliquam non bibendum dui, sit amet mollis turpis. Aenean purus
+            tellus, efficitur quis vestibulum vel, pulvinar vel lacus. Maecenas tortor ligula, imperdiet eget purus non,
+            imperdiet eleifend lorem.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam pretium aliquet
+            ligula non mollis. Proin
+            pellentesque lorem non auctor dignissim. Aliquam non bibendum dui, sit amet mollis turpis. Aenean purus
+            tellus, efficitur quis vestibulum vel, pulvinar vel lacus. Maecenas tortor ligula, imperdiet eget purus non,
+            imperdiet eleifend lorem.</p>
+    </div>
+    <div class="galerie">
+        <h2>Galerie photo</h2>
+        <ul>
+            {% for photo in galerie.photos %}
+                <li><div class="photo-container">{{ ux_icon('heroicons:x-mark', {class:"croix"}) }}<img src="{{ asset('img/' ~ photo.url) }}" alt="{{ photo.titre }}"/> {{ photo.titre }}</div></li>
+            {% else %}
+                <li>Aucun message</li>
+            {% endfor %}
+        </ul>
+    </div>
+    <script src="{{ asset('js/photoZoom.js') }}"></script>
+{% endblock %}

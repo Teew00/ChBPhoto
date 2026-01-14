@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('styles/forms.css') }}">
+{% endblock %}
+
+{% block body %}
+    <div class="formulaire">
+        {% for label, messages in app.flashes %}
+            {% for message in messages %}
+                <div class="alert alert-{{ label }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endfor %}
+        <div class="glass-container form-container">
+            <div class="glass-filter"></div>
+            <div class="glass-overlay"></div>
+            <div class="glass-specular"></div>
+            <div class="glass-content form-content">
+
+                <h1>Inscription</h1>
+
+                {{ include('user/_form.html.twig') }}
+
+                <a href="{{ path('app_login') }}">Vous avez deja un compte ?</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

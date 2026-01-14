@@ -1,0 +1,137 @@
+.galerieIndex,
+.userIndex,
+.convIndex {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.galerie-container,
+.dashboard-element,
+.user-container,
+.conv-container {
+    display: flex;
+    border-radius: 2rem;
+    padding: 2rem;
+}
+
+.galerieIndex ul,
+.dashboard-element ul,
+.userIndex ul,
+.convIndex ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.galerieLine-container,
+.line-container {
+    display: flex;
+    border-radius: 2rem;
+    margin: 0.5rem;
+    width: 100%;
+}
+
+.galerie-content,
+.dashboard-content,
+.user,
+.conv-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.user-content {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-column-gap: 1rem;
+    grid-row-gap: 0;
+    align-items: center;
+    justify-content: center;
+}
+
+.galerieLine-content,
+.line-content {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+a {
+    width: 100%;
+    height: 100%;
+    padding: 1rem;
+    text-align: center;
+}
+
+.galerieIndex a,
+.galerieIndex h2,
+.userIndex h1,
+.userIndex li,
+.userIndex a,
+.convIndex h1,
+.convIndex a {
+    color: var(--color-two);
+}
+
+.galerieIndex li:hover .glass-overlay,
+.convIndex li:hover .glass-overlay {
+    background: var(--lg-hover-glow);
+}
+
+.galerieIndex li:hover a,
+.edit:hover,
+.convIndex li:hover a {
+    color: var(--color-three);
+}
+
+.dashboard {
+    margin-top: 4rem;
+    height: 90%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 2fr 1fr;
+    grid-column-gap: 10rem;
+    grid-row-gap: 0;
+    justify-items: center;
+    align-items: center;
+}
+
+.btn a {
+    white-space: nowrap;
+}
+
+.dashboard-element .btn {
+    margin-top: 1rem;
+    font-size: 1rem;
+}
+
+.infoUser li {
+    width: 140%;
+    color: var(--color-two);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.infoUser li span {
+    text-align: right;
+}
+
+.profile{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.dashboard-content {
+    max-width: 50vw;
+}

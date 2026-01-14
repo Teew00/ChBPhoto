@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ChB Photo - Tarifs{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('styles/tarifs.css') }}" data-turbo-track="reload">
+{% endblock %}
+
+{% block body %}
+    <div class="glass-container return">
+        <div class="glass-filter"></div>
+        <div class="glass-overlay"></div>
+        <div class="glass-specular"></div>
+        <div class="glass-content">
+            <a href="{{ path('app_admin_dashboard') }}">{{ ux_icon('heroicons:arrow-uturn-left') }}</a>
+        </div>
+    </div>
+    <div class=" tarifs">
+        <div class="glass-container tarifs-container">
+            <div class="glass-filter"></div>
+            <div class="glass-overlay"></div>
+            <div class="glass-specular"></div>
+            <div class="glass-content tarifs-content">
+                <h2>Tarifs<a href="{{ path('app_admin_tarifs_new') }}"
+                             class="plus">{{ ux_icon('heroicons:plus-circle') }}</a></h2>
+                <ul>
+                    {% for tarif in tarifs %}
+                        <li class="glass-container tarifsline-container">
+                            <div class="glass-filter"></div>
+                            <div class="glass-overlay"></div>
+                            <div class="glass-specular"></div>
+                            <div class="glass-content tarifsline-content">
+                                <div>
+                                    <h3>{{ tarif.titre }}</h3>
+                                    <p class="description">{{ tarif.description }}</p>
+                                </div>
+                                <div class="config">
+                                    <p>{{ tarif.prix }}€</p>
+                                    <a href="{{ path('app_admin_tarifs_edit', {id: tarif.id}) }}">{{ ux_icon('heroicons:pencil-square') }}</a>
+                                    <form method="post" action="{{ path('app_admin_tarifs_delete', {'id': tarif.id}) }}"
+                                          onsubmit="return confirm('Êtes-vous sûr ?');">
+                                        <input type="hidden" name="_token"
+                                               value="{{ csrf_token('delete' ~ tarif.id) }}">
+                                        <button class="">{{ ux_icon('heroicons:trash') }}</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </li>
+                    {% else %}
+                        <li>Aucun Tarifs</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}

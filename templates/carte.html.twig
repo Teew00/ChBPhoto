@@ -1,0 +1,19 @@
+<div class="glass-container carte {{ side|default("right") }}">
+    <div class="glass-filter"></div>
+    <div class="glass-overlay"></div>
+    <div class="glass-specular"></div>
+    <div class="glass-content carte-content">
+        <h1>{{ CardTitle|default('ChB Photography') }}</h1>
+        <p>{{ CardText|default('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur maxime vero aliquid beatae?
+            Adipisci, molestias molestiae iusto, natus pariatur aperiam rem accusamus ab perspiciatis provident
+            impedit debitis quia nihil cumque.') }} </p>
+        <div class="glass-container btn">
+            <div class="glass-filter"></div>
+            <div class="glass-overlay"></div>
+            <div class="glass-specular"></div>
+            <div class="glass-content btn-content">
+                <a href="{{ path(ButtonLink|default('app_home_apropos')) }}">{{ ButtonText|default('A propos') }}</a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Chb Photo - Modifier tarif{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('styles/forms.css') }}">
+{% endblock %}
+
+{% block body %}
+    <div class="glass-container return">
+        <div class="glass-filter"></div>
+        <div class="glass-overlay"></div>
+        <div class="glass-specular"></div>
+        <div class="glass-content">
+            <a href="{{ path('app_admin_tarifs') }}">{{ ux_icon('heroicons:arrow-uturn-left') }}</a>
+        </div>
+    </div>
+    <div class="formulaire">
+        <div class="glass-container form-container">
+            <div class="glass-filter"></div>
+            <div class="glass-overlay"></div>
+            <div class="glass-specular"></div>
+            <div class="glass-content form-content">
+
+                <h1>Ajouter un tarif</h1>
+                {{ form_start(form) }}
+                {{ form_widget(form) }}
+                <button class="btn btn-primary">Enregistrer</button>
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}

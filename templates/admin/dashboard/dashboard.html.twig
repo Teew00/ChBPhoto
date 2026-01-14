@@ -1,0 +1,91 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ChB Photo - Dashboard{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('styles/dashboard.css') }}" data-turbo-track="reload">
+{% endblock %}
+
+{% block body %}
+    <div class="galerieIndex">
+        <div class="dashboard">
+            <div class="glass-container dashboard-element">
+                <div class="glass-filter"></div>
+                <div class="glass-overlay"></div>
+                <div class="glass-specular"></div>
+                <div class="glass-content dashboard-content">
+                    <h2>Dernières inscriptions</h2>
+                    <ul>
+                        {% for user in lastUser %}
+                            <li class="glass-container line-container">
+                                <div class="glass-filter"></div>
+                                <div class="glass-overlay"></div>
+                                <div class="glass-specular"></div>
+                                <div class="glass-content line-content">
+                                    <a href="{{ path('app_admin_user_show', {id: user.id}) }}">{{ user.nom }}
+                                        - {{ user.prenom }}
+                                        - {{ user.email }}</a>
+                                </div>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                    <div class="glass-container btn">
+                        <div class="glass-filter"></div>
+                        <div class="glass-overlay"></div>
+                        <div class="glass-specular"></div>
+                        <div class="glass-content">
+                            <a href="{{ path('app_admin_user_index') }}">Voir plus</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass-container dashboard-element">
+                <div class="glass-filter"></div>
+                <div class="glass-overlay"></div>
+                <div class="glass-specular"></div>
+                <div class="glass-content dashboard-content">
+                    <h2>Derniers messages</h2>
+                    <ul>
+                        {% for msg in lastMessage %}
+                            <li class="glass-container line-container">
+                                <div class="glass-filter"></div>
+                                <div class="glass-overlay"></div>
+                                <div class="glass-specular"></div>
+                                <div class="glass-content line-content">
+                                    <a href="{{ path('app_conversation_show', {'id': msg.idConversation.id}) }}">{{ msg.idUser.nom }} - {{ msg.idUser.prenom }}
+                                        - {{ msg.idConversation.titre }}</a>
+                                </div>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                    <div class="glass-container btn">
+                        <div class="glass-filter"></div>
+                        <div class="glass-overlay"></div>
+                        <div class="glass-specular"></div>
+                        <div class="glass-content">
+                            <a href="{{ path('app_admin_conversation_index') }}">Voir plus</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass-container btn">
+                <div class="glass-filter"></div>
+                <div class="glass-overlay"></div>
+                <div class="glass-specular"></div>
+                <div class="glass-content">
+                    <a href="{{ path('app_admin_tarifs') }}">Gérer les tarifs</a>
+                </div>
+            </div>
+            <div class="glass-container btn">
+                <div class="glass-filter"></div>
+                <div class="glass-overlay"></div>
+                <div class="glass-specular"></div>
+                <div class="glass-content">
+                    <a href="{{ path('app_admin_galerie') }}">Gérer les galeries</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

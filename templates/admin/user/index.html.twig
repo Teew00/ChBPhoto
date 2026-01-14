@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ChB Photo - Dashboard{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('styles/dashboard.css') }}">
+{% endblock %}
+
+{% block body %}
+    <div class="glass-container return">
+        <div class="glass-filter"></div>
+        <div class="glass-overlay"></div>
+        <div class="glass-specular"></div>
+        <div class="glass-content">
+            <a href="{{ path('app_admin_dashboard') }}">{{ ux_icon('heroicons:arrow-uturn-left') }}</a>
+        </div>
+    </div>
+    <div class="userIndex">
+        <div class="glass-container user-container">
+            <div class="glass-filter"></div>
+            <div class="glass-overlay"></div>
+            <div class="glass-specular"></div>
+            <div class="glass-content user">
+                <h1>Liste des utilisateurs</h1>
+                <ul class="user-content">
+                    {% for user in users %}
+                        <li class="glass-container line-container">
+                            <div class="glass-filter"></div>
+                            <div class="glass-overlay"></div>
+                            <div class="glass-specular"></div>
+                            <div class="glass-content line-content">
+                                <ul>
+                                    <li>Nom : {{ user.nom }}</li>
+                                    <li>Prénom : {{ user.prenom }}</li>
+                                    <li>Email : {{ user.email }}</li>
+                                    <li>Tel : {{ user.telephone }}</li>
+                                    <li>Rôle : {{ user.role.value }}</li>
+
+                                    <li>
+                                        <a href="{{ path('app_admin_user_edit', {'id': user.id}) }}"
+                                           class="edit">{{ ux_icon('heroicons:pencil-square') }}</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    {% else %}
+                        <li>
+                            Pas d'utilisateurs trouvés
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}

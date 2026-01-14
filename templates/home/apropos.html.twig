@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ChB Photo - A propos{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('styles/slider.css') }}">{% endblock %}
+
+{% block body %}
+    <header class="home apropos"></header>
+    <div class="desc">
+        <h2>Qui je suis ?</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam pretium aliquet ligula non mollis. Proin
+            pellentesque lorem non auctor dignissim. Aliquam non bibendum dui, sit amet mollis turpis. Aenean purus
+            tellus, efficitur quis vestibulum vel, pulvinar vel lacus. Maecenas tortor ligula, imperdiet eget purus non,
+            imperdiet eleifend lorem.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam pretium aliquet
+            ligula non mollis. Proin
+            pellentesque lorem non auctor dignissim. Aliquam non bibendum dui, sit amet mollis turpis. Aenean purus
+            tellus, efficitur quis vestibulum vel, pulvinar vel lacus. Maecenas tortor ligula, imperdiet eget purus non,
+            imperdiet eleifend lorem.</p>
+    </div>
+    <div class="postprod">
+        <h2>L'utilité de la post-production</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam pretium aliquet ligula non mollis. Proin
+            pellentesque lorem non auctor dignissim. Aliquam non bibendum dui, sit amet mollis turpis. Aenean purus
+            tellus, efficitur quis vestibulum vel, pulvinar vel lacus. Maecenas tortor ligula, imperdiet eget purus non,
+            imperdiet eleifend lorem.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam pretium aliquet
+            ligula non mollis. Proin
+            pellentesque lorem non auctor dignissim. Aliquam non bibendum dui, sit amet mollis turpis. Aenean purus
+            tellus, efficitur quis vestibulum vel, pulvinar vel lacus. Maecenas tortor ligula, imperdiet eget purus non,
+            imperdiet eleifend lorem.</p>
+        <div class="slider-container">
+            <div class="slider">
+                <div class="slider-before"></div>
+                <div class="slider-separator"></div>
+                <div class="slider-after"></div>
+                <input class="slider-range" type="range" min="0" max="100" value="50"/>
+            </div>
+        </div>
+    </div>
+    <script src='{{ asset('js/slider.js') }}'></script>
+{% endblock %}

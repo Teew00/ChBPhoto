@@ -1,0 +1,107 @@
+header {
+    height: 90vh;
+}
+
+.galerie {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2% 6% 0 6%;
+    gap: 20px;
+}
+
+.galerie li div {
+    color: var(--lg-text);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 50vh;
+}
+
+.galerie ul {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(auto-fill, 1fr);
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+
+}
+
+.galerie img {
+    width: 100%;
+    height: 90%;
+    object-fit: contain;
+}
+
+.plus {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10rem;
+    border-radius: 2rem;
+}
+
+.plus .glass-content {
+    width: 100%;
+    height: 100%;
+}
+
+.plus .glass-content a {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    color: var(--color-two);
+    transition: color 0.3s;
+}
+
+.plus:hover .glass-overlay {
+    background: var(--lg-hover-glow);
+}
+.plus:hover a {
+    color: var(--color-three);
+}
+
+.edit {
+    position: relative;
+    bottom: 85%;
+    left: 45%;
+    font-size: 3rem;
+    color: var(--color-three);
+}
+
+.edit:hover {
+    color: var(--color-four);
+}
+
+.photo-container {
+    cursor: pointer;
+    transition: transform 1s;
+}
+
+.photo-container .croix {
+    display: none;
+    position: absolute;
+    top: 5%;
+    right: 10%;
+    font-size: 5rem;
+    cursor: pointer;
+}
+
+.photo-zoom {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100vw;
+    height: 100vh !important;
+    background: rgba(0, 0, 0, 0.65);
+    cursor: default;
+}
+
+.photo-zoom .croix {
+    display: block;
+}
