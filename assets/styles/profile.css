@@ -1,3 +1,9 @@
+.profile {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
 .admin-msg,
 .user-msg {
     display: flex;

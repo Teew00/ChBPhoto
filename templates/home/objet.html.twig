@@ -3,7 +3,10 @@
 {% block title %}ChB Photo - Objet{% endblock %}
 
 {% block stylesheets %}
-    <link rel="stylesheet" href="{{ asset('styles/galeries.css') }}">{% endblock %}
+    <link rel="stylesheet" href="{{ asset('styles/galeries.css') }}" data-turbo-track="reload">
+    <link rel="stylesheet" href="{{ asset('styles/tab/galeriesTab.css') }}" data-turbo-track="reload">
+    <link rel="stylesheet" href="{{ asset('styles/mobile/galeriesMobile.css') }}" data-turbo-track="reload">
+{% endblock %}
 
 {% block body %}
     <header class="objet"></header>
@@ -34,5 +37,7 @@
             {% endfor %}
         </ul>
     </div>
-    <script src="{{ asset('js/photoZoom.js') }}"></script>
+    <script src="{{ asset('js/photoZoom.js') }}"
+            defer
+            data-turbo-track="reload"></script>
 {% endblock %}

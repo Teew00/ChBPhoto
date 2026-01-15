@@ -1,0 +1,15 @@
+@media (max-width: 1200px) {
+    @media (orientation: portrait) {
+        .conv-container {
+            width: 70%;
+            height: 90%;
+            margin-top: 13%;
+        }
+    }
+
+    @media (orientation: landscape) {
+        .conv-container {
+            width: 70%;
+        }
+    }
+}

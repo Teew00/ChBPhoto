@@ -1,0 +1,17 @@
+@media (max-width: 1200px) {
+    @media (orientation: portrait) {
+        .profile {
+            margin-top: 13%;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+
+        .dashboard-element {
+            margin-top: 3%;
+        }
+    }
+
+    @media (orientation: landscape) {}
+}

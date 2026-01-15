@@ -1,0 +1,23 @@
+@media (max-width: 750px) {
+    @media (orientation: portrait) {
+        .conv-container {
+            width: 95%;
+            margin-top: 13%;
+        }
+
+        .admin-msg,
+        .user-msg {
+            width: 85%;
+        }
+
+        .msg {
+            font-size: 0.8rem;
+        }
+    }
+
+    @media (orientation: landscape) {
+        .conv-container {
+            width: 70%;
+        }
+    }
+}

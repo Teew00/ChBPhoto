@@ -1,0 +1,51 @@
+@media (max-width: 1200px) {
+
+    nav ul {
+        visibility: hidden;
+    }
+
+    nav:hover ul {
+        visibility: visible;
+    }
+
+    @media (orientation: portrait) {
+        nav {
+            height: 7vh;
+            width: 100vw;
+            border-radius: 0 0 2rem 2rem;
+        }
+
+        nav:hover {
+            height: 70dvh;
+            width: 100dvw;
+        }
+
+        nav svg {
+            color: var(--color-two);
+            width: 24px;
+            height: 24px;
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%) rotate(90deg);
+            z-index: 4;
+            stroke: currentColor;
+        }
+
+        nav img {
+            position: fixed;
+            top: 1%;
+            left: 5%;
+        }
+
+        nav a {
+            font-size: 2.9rem;
+        }
+    }
+
+    @media (orientation: landscape) {
+        nav a {
+            font-size: 1.3rem;
+        }
+    }
+}
