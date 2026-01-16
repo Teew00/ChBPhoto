@@ -1,0 +1,24 @@
+@media (max-width: 750px) {
+    @media (orientation: portrait) {
+        *
+        .galerieIndex {
+            height: auto;
+        }
+
+        .dashboard-content {
+            max-width: 70vw;
+        }
+
+        .admin-msg,
+        .user-msg {
+            width: 85%;
+        }
+
+        .msg {
+            font-size: 0.8rem;
+        }
+    }
+
+    @media (orientation: landscape) {
+    }
+}

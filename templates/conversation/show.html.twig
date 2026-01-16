@@ -3,8 +3,10 @@
 {% block title %}Chb Photo - Messagerie - {{ conversation.titre }}{% endblock %}
 
 {% block stylesheets %}
-    <link rel="stylesheet" href="{{ asset('styles/conversation.css') }}">
-    <link rel="stylesheet" href="{{ asset('styles/forms.css') }}">
+    <link rel="stylesheet" href="{{ asset('styles/conversation.css') }}" data-turbo-track="reload">
+    <link rel="stylesheet" href="{{ asset('styles/tab/conversationTab.css') }}" data-turbo-track="reload">
+    <link rel="stylesheet" href="{{ asset('styles/mobile/convesationMobile.css') }}" data-turbo-track="reload">
+    <link rel="stylesheet" href="{{ asset('styles/forms.css') }}" data-turbo-track="reload">
 {% endblock %}
 
 {% block body %}
@@ -60,4 +62,5 @@
             </div>
         </div>
     </div>
+    <script src="{{ asset('js/convScroll.js') }}" data-turbo-track="reload"></script>
 {% endblock %}

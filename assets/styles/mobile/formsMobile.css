@@ -1,0 +1,21 @@
+@media (max-width: 750px) {
+    @media (orientation: portrait) {
+        .form-container{
+            width: 90%;
+            align-items: center;
+            justify-content: center;
+            height: auto;
+        }
+
+        .carte {
+            width: 100% !important;
+            height: auto !important;
+        }
+    }
+
+    @media (orientation: landscape) {
+        .form-container{
+            width: 80%;
+        }
+    }
+}

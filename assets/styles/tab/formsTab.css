@@ -1,0 +1,13 @@
+@media (max-width: 1200px) {
+    @media (orientation: portrait) {
+        .form-container{
+            width: 60%;
+        }
+    }
+
+    @media (orientation: landscape) {
+        .form-container{
+            width: 40%;
+        }
+    }
+}

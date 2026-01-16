@@ -1,0 +1,15 @@
+@media (max-width: 1200px) {
+    @media (orientation: portrait) {
+        .galerie ul {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .photo-container .croix {
+            top: 10%;
+            right: 7%;
+        }
+    }
+}

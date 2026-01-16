@@ -1,0 +1,33 @@
+@media (max-width: 1200px) {
+    @media (orientation: portrait) {
+        .left {
+            bottom: 25%;
+        }
+
+        .right {
+            top: 25%;
+        }
+
+        header {
+            align-items: end;
+        }
+
+        header .right {
+            margin-bottom: 7%;
+        }
+
+        .logo {
+            width: 7vw;
+        }
+
+        .return {
+            top: 10%;
+            left: 6%;
+            position: absolute;
+        }
+    }
+
+    @media (orientation: landscape) {
+
+    }
+}

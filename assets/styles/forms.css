@@ -23,6 +23,7 @@ form {
     background-color: lightgray;
     border-radius: 2rem;
     justify-content: center;
+    z-index: 10;
 }
 
 .formulaire {

@@ -126,12 +126,6 @@ a {
     text-align: right;
 }
 
-.profile{
-    width: 100%;
-    display: flex;
-    justify-content: space-evenly;
-}
-
 .dashboard-content {
     max-width: 50vw;
 }

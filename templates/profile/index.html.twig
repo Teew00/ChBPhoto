@@ -3,8 +3,10 @@
 {% block title %}ChB Photo - Dashboard{% endblock %}
 
 {% block stylesheets %}
-    <link rel="stylesheet" href="{{ asset('styles/dashboard.css') }}">
-    <link rel="stylesheet" href="{{ asset('styles/profile.css') }}">
+    <link rel="stylesheet" href="{{ asset('styles/dashboard.css') }}" data-turbo-track="reload">
+    <link rel="stylesheet" href="{{ asset('styles/profile.css') }}" data-turbo-track="reload">
+    <link rel="stylesheet" href="{{ asset('styles/tab/profileTab.css') }}" data-turbo-track="reload">
+    <link rel="stylesheet" href="{{ asset('styles/mobile/profileMobile.css') }}" data-turbo-track="reload">
 {% endblock %}
 
 {% block body %}
