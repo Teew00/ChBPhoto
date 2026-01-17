@@ -15,7 +15,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Attribute\Route;
 
-#[Route('/profile')]
+#[Route('/profil')]
 class ProfileController extends AbstractController
 {
     #[Route('/', name: 'app_profile')]
@@ -39,6 +39,11 @@ class ProfileController extends AbstractController
                 2
             );
 
+            $temp = $messages[0];
+            $messages[0] = $messages[1];
+            $messages[1] = $temp;
+
+
             $idConversation = $conversation[0]->getId();
         }
 
@@ -46,7 +51,7 @@ class ProfileController extends AbstractController
             'user' => $user,
             'messages' => $messages,
             'idConversation' => $idConversation,
-            ]);
+        ]);
     }
 
     #[Route('/modifier', name: 'app_user_edit', methods: ['GET', 'POST'])]

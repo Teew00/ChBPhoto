@@ -1,23 +1,7 @@
 @media (max-width: 750px) {
     @media (orientation: portrait) {
-        nav img {
-            position: fixed;
-            top: 0.5%;
-            left: 7%;
-        }
-
-        nav a {
-            font-size: 1rem;
-        }
-
-        nav ul li:last-child,
-        nav ul li:nth-last-child(2) {
-            position: relative;
-            top: 2rem;
-        }
     }
 
     @media (orientation: landscape) {
-
     }
 }

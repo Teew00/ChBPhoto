@@ -4,15 +4,15 @@
 
 {% block body %}
     <header class="home">
-        {{ include("carte.html.twig") }}
+        {{ include("carte.html.twig", {CardText: "Photographe passionné, je sublime vos projets, vos produits et vos moments de vie. Des exploits sportifs aux événements précieux, en passant par la mise en valeur de vos créations, je crée des visuels sur mesure qui racontent votre histoire. Ensemble, donnons vie à vos plus belles images."}) }}
     </header>
     <section class="sport">
-        {{ include("carte.html.twig", {side:"left", CardTitle: "Photographie de sport" , CardText: "" , ButtonText: "Sport", ButtonLink: "app_home_sport" } ) }}
+        {{ include("carte.html.twig", {side:"left", CardTitle: "Photographie de sport" , CardText: "Photographe sportif issu de l’escalade, j'aide les athlètes à convaincre leurs partenaires. Entraînements ou compétitions : je capture vos moments forts pour créer les visuels impactants qui feront la différence et valoriseront pleinement vos compétences." , ButtonText: "Sport", ButtonLink: "app_home_sport" } ) }}
     </section>
     <section class="event">
-        {{ include("carte.html.twig", {CardTitle: "Photographie d'Événement" , CardText: "" , ButtonText: "Événement", ButtonLink: "app_home_event" } ) }}
+        {{ include("carte.html.twig", {CardTitle: "Photographie d'Évènement" , CardText: "Vivez l'instant présent, je m'occupe des souvenirs ! Mariages, anniversaires ou compétitions : ne laissez aucune image au hasard. De la préparation au final, je réalise un reportage complet pour immortaliser vos émotions et valoriser la réussite de votre événement." , ButtonText: "Événement", ButtonLink: "app_home_event" } ) }}
     </section>
     <section class="objet">
-        {{ include("carte.html.twig", {side:"left", CardTitle: "Photographie d'Objet/Packshot" , CardText: "" , ButtonText: "Objet/Packshot", ButtonLink: "app_home_objet" } ) }}
+        {{ include("carte.html.twig", {side:"left", CardTitle: "Photographie d'Objet/Packshot" , CardText: "Sublimez vos produits avec des visuels sur mesure ! Du cliché épuré à la mise en scène élaborée, je capture l'originalité de vos créations en studio ou sur site. Ensemble, définissons une stratégie visuelle unique pour capter l’attention et valoriser votre savoir-faire." , ButtonText: "Objet/Packshot", ButtonLink: "app_home_objet" } ) }}
     </section>
 {% endblock %}
