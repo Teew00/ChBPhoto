@@ -98,13 +98,6 @@
     background:white;
 }
 
-.slider-range::-moz-slider-thumb {
-    -moz-appearance: none;
-    width:12px;
-    height:16px;
-    background:white;
-}
-
 .slider .slider-before {
     background-image: url('../img/avant.jpg');
 }

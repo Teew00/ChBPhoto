@@ -31,7 +31,7 @@ class RegisterController extends AbstractController
             $entityManager->persist($user);
             $entityManager->flush();
 
-            $this->addFlash('error','Vous etes inscit ! Vous pouvez vous connecter');
+            $this->addFlash('sucess','Vous etes inscit ! Vous pouvez vous connecter');
 
             return $this->redirectToRoute('app_login', [], Response::HTTP_SEE_OTHER);
         }

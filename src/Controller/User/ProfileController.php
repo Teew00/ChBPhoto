@@ -106,13 +106,13 @@ class ProfileController extends AbstractController
             $currentPassword = $form->get('currentPassword')->getData();
             $newPassword = $form->get('newPassword')->getData();
 
-            // Vérifier l'ancien mot de passe
+            // Vérifier l'ancien mdp
             if (!$passwordHasher->isPasswordValid($user, $currentPassword)) {
                 $this->addFlash('error', 'Mot de passe actuel incorrect.');
                 return $this->redirectToRoute('app_user_edit_password');
             }
 
-            // Hasher le nouveau mot de passe
+            // Hasher le nouveau mdp
             $hashedPassword = $passwordHasher->hashPassword($user, $newPassword);
             $user->setMotDePasse($hashedPassword);
 

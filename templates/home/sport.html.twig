@@ -26,7 +26,13 @@
         <h2>Galerie photo</h2>
         <ul>
             {% for photo in galerie.photos %}
-                <li><div class="photo-container">{{ ux_icon('heroicons:x-mark', {class:"croix"}) }}<img src="{{ asset('img/' ~ photo.url) }}" alt="{{ photo.titre }}"/> {{ photo.titre }}</div></li>
+                <li>
+                    <div class="photo-container">
+                        {{ ux_icon('heroicons:x-mark', {class:"croix"}) }}
+                        <img src="{{ asset('img/' ~ photo.url) }}" alt="{{ photo.titre }}"/>
+                        {{ photo.titre }}
+                    </div>
+                </li>
             {% else %}
                 <li>Aucun message</li>
             {% endfor %}
