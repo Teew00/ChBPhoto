@@ -60,6 +60,7 @@ input, textarea {
     font-size: 1.5rem;
     color: var(--color-three);
     border: 2px solid transparent;
+    padding: 0 0.5rem;
 }
 
 input::selection, textarea::selection {

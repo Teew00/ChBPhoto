@@ -5,6 +5,7 @@
     --color-four: #04ABBA;
     --bg-color: black;
     --lg-bg-color: rgba(255, 255, 255, 0.25);
+    --lg-bg-event: rgba(255, 255, 255, 0.50);
     --lg-highlight: rgba(255, 255, 255, 0.75);
     --lg-text: #ffffff;
     --lg-hover-glow: rgba(225, 225, 225, 0.75);
@@ -53,7 +54,7 @@ header, footer {
 }
 
 .home, .apropos {
-    background-image: url('../img/couverture.jpg');
+    background-image: url('../img/about.jpg');
 }
 
 .sport {
@@ -69,13 +70,20 @@ header, footer {
 }
 
 /* Carte et contenu central */
+.event .glass-overlay {
+    background: var(--lg-bg-event);
+}
+
 .carte, .carte-content, .desc {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    text-align: center;
     gap: 30px;
+}
+
+.carte {
+    text-align: center;
 }
 
 .carte {
@@ -199,15 +207,35 @@ section {
     padding: 2rem;
 }
 
-.desc p, .desc h2 {
+.desc p, .desc h2, .postprod h2 {
     color: var(--lg-text);
     width: 75%;
 }
 
 h2 {
-    font-size: 2.5rem;
+    font-size: 2rem;
 }
 
-.desc p {
-    font-size: 1.5rem;
+.desc p, .postprod p {
+    font-size: 1.2rem;
+    text-align: justify;
+}
+
+.desc h2 {
+    text-align: center;
+}
+
+
+.retourLigne {
+    display: block;
+    margin: 0.5rem 0;
+}
+
+.center {
+    text-align: center;
+    margin-top: 1rem !important;
+}
+
+.bold {
+    font-weight: bold;
 }

@@ -11,21 +11,28 @@
 {% block body %}
     <header class="sport"></header>
     <div class="desc">
-        <h2>Photographie de sport</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam pretium aliquet ligula non mollis. Proin
-            pellentesque lorem non auctor dignissim. Aliquam non bibendum dui, sit amet mollis turpis. Aenean purus
-            tellus, efficitur quis vestibulum vel, pulvinar vel lacus. Maecenas tortor ligula, imperdiet eget purus non,
-            imperdiet eleifend lorem.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam pretium aliquet
-            ligula non mollis. Proin
-            pellentesque lorem non auctor dignissim. Aliquam non bibendum dui, sit amet mollis turpis. Aenean purus
-            tellus, efficitur quis vestibulum vel, pulvinar vel lacus. Maecenas tortor ligula, imperdiet eget purus non,
-            imperdiet eleifend lorem.</p>
+        <h2>L'image au service de votre performance</h2>
+        <p>Pour un athlète, une image forte peut valoir bien plus qu’une simple photo. Je vous propose de créer des visuels percutants qui sauront capter l'attention des sponsors et mettre en lumière toute l'étendue de votre talent et de votre détermination.
+
+            <span class="retourLigne"> - <span class="bold">Un accompagnement sur mesure</span> : Du portrait d'athlète charismatique au reportage d'action le plus intense, je m'adapte à votre discipline, à vos objectifs de communication et à votre budget.</span>
+
+            <span class="retourLigne"> - <span class="bold">Une expertise tout terrain</span> : Des clichés techniques en plein effort aux ambiances plus lifestyle et naturelles, je vous offre une palette créative variée pour construire une identité visuelle unique.</span>
+
+            <span class="retourLigne"> - <span class="bold">Des prises de vue immersives</span> : À l'entraînement au cœur de votre préparation ou dans le feu de la compétition, je choisis les angles les plus spectaculaires pour valoriser vos compétences et votre engagement.</span>
+
+            <span class="retourLigne">Chaque athlète a une histoire unique. C'est pourquoi je prends le temps d'échanger avec vous pour comprendre votre parcours et définir ensemble une stratégie d'image qui vous ressemble et qui saura convaincre vos futurs partenaires.</span></p>
     </div>
     <div class="galerie">
         <h2>Galerie photo</h2>
         <ul>
             {% for photo in galerie.photos %}
-                <li><div class="photo-container">{{ ux_icon('heroicons:x-mark', {class:"croix"}) }}<img src="{{ asset('img/' ~ photo.url) }}" alt="{{ photo.titre }}"/> {{ photo.titre }}</div></li>
+                <li>
+                    <div class="photo-container">
+                        {{ ux_icon('heroicons:x-mark', {class:"croix"}) }}
+                        <img src="{{ asset('img/' ~ photo.url) }}" alt="{{ photo.titre }}"/>
+                        {{ photo.titre }}
+                    </div>
+                </li>
             {% else %}
                 <li>Aucun message</li>
             {% endfor %}

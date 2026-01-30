@@ -11,7 +11,7 @@
 .postprod p {
     color: var(--lg-text);
     width: 75%;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
 }
 
 .slider-container {
@@ -98,19 +98,12 @@
     background:white;
 }
 
-.slider-range::-moz-slider-thumb {
-    -moz-appearance: none;
-    width:12px;
-    height:16px;
-    background:white;
-}
-
 .slider .slider-before {
-    background-image: url('../img/Mars.jpg');
+    background-image: url('../img/avant.jpg');
 }
 
 .slider .slider-after {
-    background-image: url('../img/Fevrier.jpg');
+    background-image: url('../img/apres.jpg');
 }
 
 .slider .slider-separator:before {

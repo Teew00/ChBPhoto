@@ -21,6 +21,10 @@ header {
     height: 50vh;
 }
 
+.galerie h2 {
+    color: var(--lg-text);
+}
+
 .galerie ul {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
